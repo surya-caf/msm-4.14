@@ -2,7 +2,6 @@
  * composite.c - infrastructure for Composite USB Gadgets
  *
  * Copyright (C) 2006-2008 David Brownell
- *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -2416,7 +2415,7 @@ void composite_suspend(struct usb_gadget *gadget)
 	cdev->suspended = 1;
 	spin_unlock_irqrestore(&cdev->lock, flags);
 
-	usb_gadget_vbus_draw(gadget, 2);
+	usb_gadget_vbus_draw(gadget, 500);
 }
 
 void composite_resume(struct usb_gadget *gadget)
